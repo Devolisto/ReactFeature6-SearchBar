@@ -9,12 +9,12 @@ import products from "../products";
 import {useState} from "react";
 
 const ProductList = () => {
-  const [query, setQuery] = useState();
+  const [query, setQuery] = useState("");
 
-  const filteredList = products.filter((product) => product.name.inclueds(query))
+  const filteredList = products.filter((product) => product.name.includes(query))
   console.log(filteredList);
 
-  filteredList.map((product) => (
+  const productList = filteredList.map((product) => (
     <ProductItem product={product} key={product.id} />
   ))
   // const productList = products.map((product) => (
@@ -26,7 +26,7 @@ const ProductList = () => {
   return (
     <>
       <SearchBar setQuery={setQuery} />
-      <ListWrapper>{filteredList}</ListWrapper>
+      <ListWrapper>{productList}</ListWrapper>
     </>
   );
 };
