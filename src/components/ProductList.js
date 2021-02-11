@@ -11,7 +11,7 @@ import {useState} from "react";
 const ProductList = () => {
   const [query, setQuery] = useState("");
 
-  const filteredList = products.filter((product) => product.name.includes(query))
+  const filteredList = products.filter((product) => product.name.toLocaleLowerCase().includes(query.toLocaleLowerCase()));
   console.log(filteredList);
 
   const productList = filteredList.map((product) => (
